@@ -6,11 +6,13 @@ variable "key_vault_name" {
 variable "tenant_id" {
   type = string
   description = "The tenant ID for the Azure subscription"
+  default     = "90eb4ea6-f2cf-4ca5-8332-a8ecb46c89b4"
 }
 
 variable "object_id" {
   type = string
   description = "The object ID for the Azure AD service principal"
+  default     = "09da5451-bbb5-4841-82ae-07820cc46741"
 }
 
 variable "secret_name" {
