@@ -67,5 +67,5 @@ variable "azurerm_key_vault_sku" {
 variable "azurerm_key_vault_access_policy_permissions" {
   type        = list(string)
   description = "The permissions for the key vault access policy"
-  default     = ["get", "list"]
+  default     = ["Get", "List"]
 }
