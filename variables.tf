@@ -31,13 +31,13 @@ variable "location" {
 variable "tenant_id" {
   type        = string
   description = "The tenant ID of the Azure account"
-  default     = "7a4ade8e-7afc-4d92-afb7-d08dfbb5ec90"
+  default     = "90eb4ea6-f2cf-4ca5-8332-a8ecb46c89b4"
 }
 
 variable "object_id" {
   type        = string
   description = "The object ID of the Azure account"
-  default     = "b020d4c5-a4ae-40e9-8e4d-f920d3437426"
+  default     = "940bed0b-3d3d-46c3-82b7-83c96bb5fac4"
 }
 
 variable "key_vault_name" {
