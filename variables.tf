@@ -37,7 +37,7 @@ variable "tenant_id" {
 variable "object_id" {
   type        = string
   description = "The object ID of the Azure account"
-  default     = "940bed0b-3d3d-46c3-82b7-83c96bb5fac4"
+  default     = "09da5451-bbb5-4841-82ae-07820cc46741"
 }
 
 variable "key_vault_name" {
