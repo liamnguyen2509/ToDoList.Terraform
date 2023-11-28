@@ -32,3 +32,13 @@ variable "location" {
   type = string
   description = "The location/region where the key vault will be created"
 }
+
+variable "azurerm_key_vault_sku" {
+  type = string
+  description = "The SKU name of the key vault"
+}
+
+variable "azurerm_key_vault_access_policy_permissions" {
+  type = list(string)
+  description = "The permissions for the key vault access policy"
+}

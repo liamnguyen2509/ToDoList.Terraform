@@ -57,3 +57,15 @@ variable "secret_value" {
   description = "The value of the secret to create"
   default     = "todo-secret-value"
 }
+
+variable "azurerm_key_vault_sku" {
+  type        = string
+  description = "The SKU name of the key vault"
+  default     = "standard"
+}
+
+variable "azurerm_key_vault_access_policy_permissions" {
+  type        = list(string)
+  description = "The permissions for the key vault access policy"
+  default     = ["get", "list"]
+}

@@ -29,15 +29,17 @@ module "database" {
 }
 
 module "key-vault" {
-  source              = "./modules/key-vaults"
-  depends_on          = [module.resource-group]
-  resource_group_name = var.resource_group_name
-  location            = var.location
-  tenant_id           = var.tenant_id
-  object_id           = var.object_id
-  key_vault_name      = var.key_vault_name
-  secret_name         = var.secret_name
-  secret_value        = var.secret_value
+  source                                      = "./modules/key-vaults"
+  depends_on                                  = [module.resource-group]
+  resource_group_name                         = var.resource_group_name
+  location                                    = var.location
+  tenant_id                                   = var.tenant_id
+  object_id                                   = var.object_id
+  key_vault_name                              = var.key_vault_name
+  secret_name                                 = var.secret_name
+  secret_value                                = var.secret_value
+  azurerm_key_vault_sku                       = var.azurerm_key_vault_sku
+  azurerm_key_vault_access_policy_permissions = var.azurerm_key_vault_access_policy_permissions
 }
 
 module "app" {
@@ -52,10 +54,5 @@ module "app" {
 
 # Configure the Microsoft Azure Provider
 provider "azurerm" {
-  features {
-    key_vault {
-      purge_soft_delete_on_destroy    = true
-      recover_soft_deleted_key_vaults = true
-    }
-  }
+  features {}
 }
