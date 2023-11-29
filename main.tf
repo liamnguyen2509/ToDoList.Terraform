@@ -6,13 +6,6 @@ terraform {
       version = "3.75.0"
     }
   }
-
-  cloud {
-    organization = "liamnguyen2509"
-    workspaces {
-      name = "ToDoListTerraform"
-    }
-  }
 }
 
 module "resource-group" {
@@ -37,21 +30,21 @@ module "database" {
 
 data "azurerm_client_config" "current" {}
 
-module "key-vault" {
+module "key-vaults" {
   source                                      = "./modules/key-vaults"
   depends_on                                  = [module.resource-group]
+  keyvault_name                               = var.keyvault_name
   resource_group_name                         = var.resource_group_name
   location                                    = var.location
-  tenant_id                                   = var.tenant_id
-  object_id                                   = var.object_id
-  key_vault_name                              = var.key_vault_name
-  azurerm_key_vault_sku                       = var.azurerm_key_vault_sku
+  tenant_id                                   = data.azurerm_client_config.current.tenant_id
+  object_id                                   = data.azurerm_client_config.current.object_id
   azurerm_key_vault_access_policy_permissions = var.azurerm_key_vault_access_policy_permissions
+  azurerm_key_vault_sku                       = var.azurerm_key_vault_sku
 }
 
 module "app" {
   source              = "./modules/app"
-  depends_on          = [module.resource-group, module.database, module.key-vault]
+  depends_on          = [module.resource-group, module.database, module.key-vaults]
   resource_group_name = var.resource_group_name
   location            = var.location
   service_plan_name   = var.service_plan_name

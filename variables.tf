@@ -40,7 +40,7 @@ variable "object_id" {
   default     = "09da5451-bbb5-4841-82ae-07820cc46741"
 }
 
-variable "key_vault_name" {
+variable "keyvault_name" {
   type        = string
   description = "The name of the key vault to create"
   default     = "todo-key-vault"
