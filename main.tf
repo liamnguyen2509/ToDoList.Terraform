@@ -28,6 +28,8 @@ module "database" {
   location            = var.location
 }
 
+data "azurerm_client_config" "current" {}
+
 module "key-vault" {
   source                                      = "./modules/key-vaults"
   depends_on                                  = [module.resource-group]
