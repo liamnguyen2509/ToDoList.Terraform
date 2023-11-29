@@ -25,7 +25,7 @@ variable "resource_group_name" {
 variable "location" {
   type        = string
   description = "The location/region where the service plan will be created"
-  default     = "West US"
+  default     = "Central US"
 }
 
 variable "tenant_id" {
