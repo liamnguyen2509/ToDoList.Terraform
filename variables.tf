@@ -46,18 +46,6 @@ variable "key_vault_name" {
   default     = "todo-key-vault"
 }
 
-variable "secret_name" {
-  type        = string
-  description = "The name of the secret to create"
-  default     = "todo-secret"
-}
-
-variable "secret_value" {
-  type        = string
-  description = "The value of the secret to create"
-  default     = "todo-secret-value"
-}
-
 variable "azurerm_key_vault_sku" {
   type        = string
   description = "The SKU name of the key vault"

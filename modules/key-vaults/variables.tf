@@ -15,16 +15,6 @@ variable "object_id" {
   default     = "09da5451-bbb5-4841-82ae-07820cc46741"
 }
 
-variable "secret_name" {
-  type = string
-  description = "The name of the secret to create"    
-}
-
-variable "secret_value" {
-  type = string
-  description = "The value of the secret to create"
-}
-
 variable "resource_group_name" {
   type = string
   description = "The name of the resource group in which to create the key vault"

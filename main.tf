@@ -36,8 +36,6 @@ module "key-vault" {
   tenant_id                                   = var.tenant_id
   object_id                                   = var.object_id
   key_vault_name                              = var.key_vault_name
-  secret_name                                 = var.secret_name
-  secret_value                                = var.secret_value
   azurerm_key_vault_sku                       = var.azurerm_key_vault_sku
   azurerm_key_vault_access_policy_permissions = var.azurerm_key_vault_access_policy_permissions
 }

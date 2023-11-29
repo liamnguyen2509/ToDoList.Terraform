@@ -15,10 +15,3 @@ resource "azurerm_key_vault_access_policy" "todolist" {
   object_id             = var.object_id
   secret_permissions    = var.azurerm_key_vault_access_policy_permissions
 }
-
-resource "azurerm_key_vault_secret" "todolist" {
-  name         = var.secret_name
-  value        = var.secret_value
-  key_vault_id = azurerm_key_vault.todolist.id
-  depends_on = [azurerm_key_vault_access_policy.todolist]
-}
