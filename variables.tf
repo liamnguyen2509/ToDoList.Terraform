@@ -82,7 +82,7 @@ variable "database_name" {
   default     = "todo-database"
 }
 
-variable "version" {
+variable "sqlserver_version" {
   type        = string
   description = "The version of the database server"
   default     = "12.0"

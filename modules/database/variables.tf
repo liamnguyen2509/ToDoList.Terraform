@@ -34,7 +34,7 @@ variable "location" {
     description = "The location/region where the database server will be created"
 }
 
-variable "version" {
+variable "sqlserver_version" {
     type = string
     description = "The version of the database server"
 }
