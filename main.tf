@@ -30,21 +30,21 @@ module "database" {
 
 data "azurerm_client_config" "current" {}
 
-module "key-vaults" {
-  source                                      = "./modules/key-vaults"
-  depends_on                                  = [module.resource-group]
-  keyvault_name                               = var.keyvault_name
-  resource_group_name                         = var.resource_group_name
-  location                                    = var.location
-  tenant_id                                   = data.azurerm_client_config.current.tenant_id
-  object_id                                   = data.azurerm_client_config.current.object_id
-  azurerm_key_vault_access_policy_permissions = var.azurerm_key_vault_access_policy_permissions
-  azurerm_key_vault_sku                       = var.azurerm_key_vault_sku
-}
+# module "key-vaults" {
+#   source                                      = "./modules/key-vaults"
+#   depends_on                                  = [module.resource-group]
+#   keyvault_name                               = var.keyvault_name
+#   resource_group_name                         = var.resource_group_name
+#   location                                    = var.location
+#   tenant_id                                   = data.azurerm_client_config.current.tenant_id
+#   object_id                                   = data.azurerm_client_config.current.object_id
+#   azurerm_key_vault_access_policy_permissions = var.azurerm_key_vault_access_policy_permissions
+#   azurerm_key_vault_sku                       = var.azurerm_key_vault_sku
+# }
 
 module "app" {
   source              = "./modules/app"
-  depends_on          = [module.resource-group, module.database, module.key-vaults]
+  depends_on          = [module.resource-group, module.database]
   resource_group_name = var.resource_group_name
   location            = var.location
   service_plan_name   = var.service_plan_name
