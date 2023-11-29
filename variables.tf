@@ -57,3 +57,48 @@ variable "azurerm_key_vault_access_policy_permissions" {
   description = "The permissions for the key vault access policy"
   default     = ["Get", "List"]
 }
+
+variable "administrator_login" {
+  type        = string
+  description = "The administrator login for the database server"
+  default     = "sqladmin"
+}
+
+variable "administrator_login_password" {
+  type        = string
+  description = "The administrator login password for the database server"
+  default     = "P@ssw0rd1234"
+}
+
+variable "collation" {
+  type        = string
+  description = "The collation of the database"
+  default     = "Latin1_General_CI_AS"
+}
+
+variable "database_name" {
+  type        = string
+  description = "The name of the database to create"
+  default     = "todo-database"
+}
+
+variable "version" {
+  type        = string
+  description = "The version of the database server"
+  default     = "12.0"
+}
+
+variable "azurerm_mssql_database_sku_name" {
+  type        = string
+  description = "The SKU name of the database"
+  default     = "Basic"
+}
+
+variable "sqlserver_name" {
+  type        = string
+  description = "The name of the database server to create"
+  default     = "todo-sqlserver"
+}
+
+
+

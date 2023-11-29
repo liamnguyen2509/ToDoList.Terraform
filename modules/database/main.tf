@@ -11,11 +11,7 @@ resource "azurerm_mssql_database" "todolist" {
   name           = var.database_name
   server_id      = azurerm_mssql_server.todolist.id
   collation      = var.collation
-  license_type   = "LicenseIncluded"
-  max_size_gb    = var.max_size_gb
-  read_scale     = true
-  sku_name       = "S0"
-  zone_redundant = true
+  sku_name       = var.azurerm_mssql_database_sku_name
 
   tags = {
     foo = "bar"
