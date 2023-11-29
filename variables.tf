@@ -100,5 +100,23 @@ variable "sqlserver_name" {
   default     = "todo-sqlserver"
 }
 
+variable "webapp_name" {
+  type        = string
+  description = "The name of the web app to create"
+  default     = "todolistwebapp"
+}
+
+variable "webapi_name" {
+  type        = string
+  description = "The name of the web api to create"
+  default     = "todolistapi"
+}
+
+variable "dotnet_version" {
+  type        = string
+  description = "The version of .NET to use"
+  default     = "v6.0"
+}
+
 
 

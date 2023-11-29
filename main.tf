@@ -50,6 +50,9 @@ module "app" {
   service_plan_name   = var.service_plan_name
   os_type             = var.os_type
   sku_name            = var.sku_name
+  webapp_name         = var.webapp_name
+  webapi_name         = var.webapi_name
+  dotnet_version      = var.dotnet_version
 }
 
 # Configure the Microsoft Azure Provider

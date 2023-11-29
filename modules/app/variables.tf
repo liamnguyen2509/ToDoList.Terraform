@@ -43,3 +43,14 @@ variable "functionapp_name" {
   description = "The name of the function app to create"
   default     = "todolistfunctionapp"
 }
+
+variable "webapi_name" {
+  type        = string
+  description = "The name of the web api to create"
+  default     = "todolistapi"
+}
+
+variable "dotnet_version" {
+  type        = string
+  description = "The version of .NET to use"
+}

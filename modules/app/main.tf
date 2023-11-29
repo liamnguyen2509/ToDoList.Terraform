@@ -6,14 +6,6 @@ resource "azurerm_service_plan" "todolist" {
   sku_name            = var.sku_name
 }
 
-resource "azurerm_storage_account" "todolist" {
-  name                     = var.storage_account_name
-  resource_group_name      = var.resource_group_name
-  location                 = var.location
-  account_tier             = "Standard"
-  account_replication_type = "LRS"
-}
-
 resource "azurerm_windows_web_app" "todolist" {
   name                = var.webapp_name
   resource_group_name = var.resource_group_name
@@ -24,13 +16,22 @@ resource "azurerm_windows_web_app" "todolist" {
 }
 
 
-resource "azurerm_windows_function_app" "todolist" {
-  name                = var.functionapp_name
+resource "azurerm_windows_web_app" "todolist_api" {
+  name                = var.webapi_name
   resource_group_name = var.resource_group_name
   location            = var.location
   service_plan_id     = azurerm_service_plan.todolist.id
-  storage_account_name       = azurerm_storage_account.todolist.name
-  storage_account_access_key = azurerm_storage_account.todolist.primary_access_key
 
-  site_config {}
+  site_config {
+    always_on         = false
+    app_command_line  = "dotnet TodoList.Api.dll"
+    use_32_bit_worker = true
+    application_stack {
+      dotnet_version = var.dotnet_version
+    }
+  }
+
+  app_settings = {
+    "WEBSITES_PORT" = "5000"
+  }
 }
